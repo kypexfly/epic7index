@@ -6,9 +6,9 @@ import FilterMenu from "../components/FilterMenu";
 import { useAppStore } from "../store/useStore";
 
 export interface FilterState {
-  attributes?: Set<string>;
+  attributes: Set<string>;
   roles: Set<string>;
-  zodiacs?: Set<string>;
+  zodiacs: Set<string>;
   rarity: Set<string>;
 }
 
@@ -21,25 +21,22 @@ const ArtifactsPage = () => {
     rarity: new Set(["All"]),
   });
 
-  const setSelectedId = useAppStore(state => state.setSelectedId)
+  const setSelectedId = useAppStore((state) => state.setSelectedId);
 
   useEffect(() => {
-    return () => setSelectedId("")
-  }, [])
+    return () => setSelectedId("");
+  }, []);
 
   return (
     <>
       <div className="flex relative">
         <SearchBar setSearch={setSearch} />
-        <FilterMenu
+        {/* <FilterMenu
           filterOptions={filterOptions}
           setFilterOptions={setFilterOptions}
-        />
+        /> */}
       </div>
-      {/* <div> */}
-        <ArtifactsList search={search} filterOptions={filterOptions} />
-        {/* <InfoPanel /> */}
-      {/* </div> */}
+      {/* <ArtifactsList search={search} filterOptions={filterOptions} /> */}
     </>
   );
 };

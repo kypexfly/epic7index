@@ -16,8 +16,6 @@ export const ZODIACS:ZodiacTypes = {
   };
   
   export const ROLES:RoleTypes = {
-    // "": "Public",
-    // undefined: "Public",
     warrior: "Warrior",
     knight: "Knight",
     ranger: "Ranger",

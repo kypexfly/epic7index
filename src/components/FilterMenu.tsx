@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
+import { ChevronDown, Filter } from "tabler-icons-react";
 import { FilterState } from "../pages/HeroesPage";
 import { ATTRIBUTES, ROLES, ZODIACS } from "../utils/constants";
 import FilterColumn from "./FilterColumn";
-import { Filter, ChevronDown } from "tabler-icons-react";
 
 export type FilterProps = {
   filterOptions: FilterState;

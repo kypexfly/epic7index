@@ -31,11 +31,12 @@ const ArtifactsList = ({ search, filterOptions }: ArtifactsListProps) => {
   return (
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2 col-start-1 col-end-4">
       {filteredArtifacts?.map((artifact) => (
-        <ArtifactCard
-          key={artifact.id}
-          artifact={artifact}
-          isSelected={artifact.id === selectedId}
-        />
+        <span>{artifact.name}</span>
+        // <ArtifactCard
+        //   key={artifact.id}
+        //   artifact={artifact}
+        //   isSelected={artifact.id === selectedId}
+        // />
       ))}
     </div>
   );

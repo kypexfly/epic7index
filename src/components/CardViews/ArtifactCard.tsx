@@ -6,10 +6,11 @@ import { useAppStore } from "../../store/useStore";
 
 type ArtifactCardProp = {
   artifact: Artifact;
-  isSelected: boolean};
+  isSelected: boolean;
+};
 
 const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
-  const setSelectedId = useAppStore(state => state.setSelectedId)
+  const setSelectedId = useAppStore((state) => state.setSelectedId);
   let artifactClassName = "hero__card";
   if (isSelected) {
     artifactClassName += " active";
@@ -28,7 +29,10 @@ const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
   };
 
   return (
-    <div className={artifactClassName} onClick={() => handleSelectedId(artifact.id)}>
+    <div
+      className={artifactClassName}
+      onClick={() => handleSelectedId(artifact.id)}
+    >
       <div className="relative">
         <div
           className="overlay_icons_art"
@@ -41,7 +45,6 @@ const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
           width={96}
           height={96}
           src={`https://res.cloudinary.com/ceciliabot/image/upload/epic-seven/item_arti/icon_${artifact.id}.png`}
-
         />
       </div>
       <small>{artifact.name}</small>
