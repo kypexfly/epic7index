@@ -40,10 +40,10 @@ const Navbar = () => {
         </ul>
 
         <button
-          className="bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-slate-200 rounded-full p-1 w-16 flex justify-center items-center"
+          className="bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-slate-200 rounded-full p-1 w-12 flex justify-center items-center"
           onClick={toggleTheme}
         >
-          {theme === "dark" ? <Moon size={16} /> : <BrightnessUp size={16} />}
+          {theme === "dark" ? <Moon size={18} /> : <BrightnessUp size={18} />}
         </button>
       </div>
     </header>
