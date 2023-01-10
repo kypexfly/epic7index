@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import HeroesList from "../components/HeroesList";
 import FilterMenu from "../components/FilterMenu";
+// import InfoPanel from "../components/InfoPanel";
+import { useAppStore } from "../store/useStore";
 
 export interface FilterState {
   attributes: Set<string>;
@@ -18,7 +20,13 @@ const HeroesPage = () => {
     zodiacs: new Set(["All"]),
     rarity: new Set(["All"]),
   });
-  
+
+  const setSelectedId = useAppStore(state => state.setSelectedId)
+
+  useEffect(() => {
+    return () => setSelectedId("")
+  }, [])
+
   return (
     <>
       <div className="flex relative">
@@ -28,7 +36,10 @@ const HeroesPage = () => {
           setFilterOptions={setFilterOptions}
         />
       </div>
-      <HeroesList search={search} filterOptions={filterOptions} />
+      {/* <div> */}
+        <HeroesList search={search} filterOptions={filterOptions} />
+        {/* <InfoPanel /> */}
+      {/* </div> */}
     </>
   );
 };

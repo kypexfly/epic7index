@@ -44,7 +44,7 @@ export default function FilterColumn({
                 className="max-h-6"
                 src={`/assets/${filter}/${filterOption}.png`}
                 alt=""
-              />
+              /> <small>{typeof(filterOption) === "string" ? filterOption : null}</small>
             </label>
           </li>
         ))}

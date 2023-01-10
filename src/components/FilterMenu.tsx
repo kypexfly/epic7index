@@ -60,14 +60,14 @@ const FilterMenu = ({ filterOptions, setFilterOptions }: FilterProps) => {
 
   return (
     <>
+
+      <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
       <button
         className="flex flex-inline items-center top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg hover:bg-blue-800 outline-none dark:bg-blue-600 dark:hover:bg-blue-700"
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+        onClick={() => setIsOpen(!isOpen)}>
         <Filter size={20} /> <ChevronDown size={12} />
       </button>
-      <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
         <div className={isOpen ? "filter_menu" : "filter_menu !hidden"}>
           <FilterColumn
             filter="attributes"

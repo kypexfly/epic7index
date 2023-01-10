@@ -1,9 +1,9 @@
-import { useState } from "react";
 import useDebounce from "../hooks/useDebounce";
-import { useFetchHeroes } from "../hooks/useFetchHeroes";
+import { useFetchHeroes } from "../hooks/useFetch";
 import { FilterState } from "../pages/HeroesPage";
 import HeroCard from "./CardViews/HeroCard";
 import checkFilterValues from "../utils/checkFilterValues";
+import { useAppStore } from "../store/useStore";
 
 type HeroesListProps = {
   search: string;
@@ -11,7 +11,7 @@ type HeroesListProps = {
 };
 
 const HeroesList = ({ search, filterOptions }: HeroesListProps) => {
-  const [selectedId, setSelectedId] = useState("");
+  const selectedId = useAppStore(state => state.selectedId)
   const { data: heroes, isLoading } = useFetchHeroes();
   const debouncedSearch = useDebounce(search, 300);
 
@@ -30,13 +30,12 @@ const HeroesList = ({ search, filterOptions }: HeroesListProps) => {
     return <p>No results. Try again, please.</p>;
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2">
+    <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2 col-start-1 col-end-4">
       {filteredHeroes?.map((hero) => (
         <HeroCard
           key={hero.id}
           hero={hero}
           isSelected={hero.id === selectedId}
-          setSelectedId={setSelectedId}
         />
       ))}
     </div>

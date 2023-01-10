@@ -3,8 +3,8 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-slate-200 dark:bg-slate-900">
       <div className="container mx-auto pt-10 pb-5">
-        <div className="flex gap-6">
-          <div className="flex-1">
+        <div className="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-6 px-2">
+          <section>
             <h2 className="text-xl text-gray-700 dark:text-gray-400">Categories</h2>
             <ul className="text-gray-500">
               <li>
@@ -23,8 +23,8 @@ const Footer = () => {
                 <Link to="/">Link Test</Link>
               </li>
             </ul>
-          </div>
-          <div className="flex-1">
+          </section>
+          <section>
             <h2 className="text-xl text-gray-700 dark:text-gray-400">Links</h2>
             <ul className="text-gray-500">
               <li>
@@ -43,8 +43,8 @@ const Footer = () => {
                 <Link to="/">Link Test</Link>
               </li>
             </ul>
-          </div>
-          <div className="flex-1">
+          </section>
+          <section>
             <h2 className="text-xl text-gray-700 dark:text-gray-400">About</h2>
             <p className="text-justify text-gray-500">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
@@ -52,8 +52,8 @@ const Footer = () => {
               dolores suscipit officiis delectus culpa ipsam et quisquam
               voluptatibus. Maiores, repudiandae.
             </p>
-          </div>
-          <div className="flex-1">
+          </section>
+          <section>
             <h2 className="text-xl text-gray-700 dark:text-gray-400">Contact</h2>
             <p className="text-justify text-gray-500">
             All game content and assets are trademarks and copyrights of SUPERCREATIVE Corp and/or Smilegate Megaport.
@@ -62,7 +62,7 @@ const Footer = () => {
             This site is fan made, not affiliated with SUPERCREATIVE Corp and/or Smilegate Megaport.
             </p>
 
-          </div>
+          </section>
         </div>
         <div className="flex justify-between mt-10">
           <span>EPIC7INDEX</span>

@@ -1,4 +1,4 @@
-import { AttributeTypes, RoleTypes, ZodiacTypes } from "../hooks/types";
+import { AttributeTypes, RoleArtTypes, RoleTypes, ZodiacTypes } from "../hooks/types";
 
 export const ZODIACS:ZodiacTypes = {
     crab: "Cancer",
@@ -24,6 +24,11 @@ export const ZODIACS:ZodiacTypes = {
     mage: "Mage",
     assassin: "Thief",
     manauser: "Soul Weaver",
+  };
+  export const ROLESART:RoleArtTypes = {
+    "": "Public",
+    undefined: "Public",
+    ...ROLES
   };
   
   export const ATTRIBUTES:AttributeTypes = {

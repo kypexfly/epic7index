@@ -9,6 +9,16 @@ export interface Hero {
     zodiac: string;
 }
 
+export interface Artifact {
+  _id: string;
+  id: string;
+  identifier: string;
+  name: string;
+  rarity: number;
+  role: string;
+  gacha: boolean;
+}
+
 export interface ZodiacTypes {
     crab: string;
     scorpion: string;
@@ -25,14 +35,19 @@ export interface ZodiacTypes {
   }
   
   export interface RoleTypes {
-    // "": string;
-    // undefined: string;
+    // ""?: string;
+    // undefined?: string;
     warrior: string;
     knight: string;
     ranger: string;
     mage: string;
     assassin: string;
     manauser: string;
+  }
+
+  export interface RoleArtTypes extends RoleTypes {
+    ""?: string;
+    undefined?: string;
   }
   
   export interface AttributeTypes {

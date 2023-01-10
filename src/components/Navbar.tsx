@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { Moon, BrightnessUp } from "tabler-icons-react";
-import { useThemeStore } from "../store/useThemeStore";
+import { useThemeStore } from "../store/useStore";
 import { useEffect } from "react";
 
 const Navbar = () => {
@@ -35,11 +35,6 @@ const Navbar = () => {
           <li>
             <NavLink className="hover:dark:text-white" to="/artifacts">
               Artifacts
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="hover:dark:text-white" to="/test">
-              Test
             </NavLink>
           </li>
         </ul>

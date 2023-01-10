@@ -1,4 +1,4 @@
-const checkFilterValues = (value : string, filterArray : string[]) : boolean | undefined => {
+const checkFilterValues = (value : string | undefined, filterArray : string[]) : boolean | undefined => {
     if (typeof value === "undefined") return;
     if (filterArray.includes("All")) {
       return true;

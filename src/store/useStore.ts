@@ -6,6 +6,12 @@ type ThemeState = {
   toggleTheme: () => void
 }
 
+type AppState = {
+  selectedId: string;
+  setSelectedId: (id:string) => void
+
+}
+
 export const useThemeStore = create(
   persist<ThemeState>((set) => ({
     theme: 'dark',
@@ -16,3 +22,8 @@ export const useThemeStore = create(
     name: "theme"
   })
 )
+
+export const useAppStore = create<AppState>((set) => ({
+  selectedId: "",
+  setSelectedId: (id) => set({selectedId: id })
+}))
