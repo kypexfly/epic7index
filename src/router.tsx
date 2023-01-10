@@ -6,12 +6,14 @@ const HeroesPage = lazy(() => import("./pages/HeroesPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ArtifactsPage = lazy(() => import("./pages/ArtifactsPage"));
 import Loader from "./components/Loader";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const Layout = () => {
   return (
     <>
       <Navbar />
       <div className="min-h-[90vh] container mx-auto p-2">
+        <ScrollToTop />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
@@ -26,6 +28,7 @@ const FullLayout = () => {
     <>
       <Navbar />
       <div className="min-h-[90vh]">
+        <ScrollToTop />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
