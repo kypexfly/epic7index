@@ -2,10 +2,9 @@ import { RotatingLines } from "react-loader-spinner";
 import { useFetchHero } from "../hooks/useFetch";
 import { useAppStore } from "../store/useStore";
 import skillDescription from "../utils/skillDescription";
-import { useParams } from 'react-router-dom'
 
 const HeroDetail = () => {
-  const selectedId = useAppStore((state) => state.selectedId) || useParams()?.id;
+  const selectedId = useAppStore((state) => state.selectedId);
 
   const { data: hero, isLoading, isError } = useFetchHero(selectedId);
   // console.log(hero)
@@ -16,14 +15,25 @@ const HeroDetail = () => {
         Error: Hero not found. Try on <a className="underline" href="epic7x.com/">Epic7x!</a>
       </p>
     );
+
   if (isLoading)
-    return <></>;
+  return (
+    <div className="flex h-40 justify-center">
+      <RotatingLines
+        strokeColor="#2563eb"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="32"
+        visible={true}
+      />
+    </div>
+  );
 
   return (
     <>
       {/* Header */}
       <header className="flex gap-5 w-full min-h-[7rem] items-center">
-        <img src={hero.assets.icon} width={100} alt="" />
+        <img src={hero.assets.icon} width={100} height={110} alt="" />
         <div>
           <h1 className="my-3 text-4xl">
             {hero.name} <span className="badge-gray">{hero.id}</span>
@@ -75,6 +85,8 @@ const HeroDetail = () => {
         </span>
       </div>
 
+      <hr />
+      
       {/* Info */}
       <h2 className="text-m uppercase font-bold">{hero.name}'s story</h2>
       <p>{hero.story}</p>

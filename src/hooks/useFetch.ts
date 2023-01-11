@@ -3,6 +3,7 @@ import axios from "axios"
 import {AttributeTypes, RoleTypes, ZodiacTypes, Hero, Artifact, RoleArtTypes} from "./types"
 import { HeroDetailFetch, HeroDetail } from "./herodetailTypes";
 import { ATTRIBUTES, ROLES, ROLESART, ZODIACS } from "../utils/constants";
+import { ArtifactDetail, ArtifactDetailFetch } from "./artifactdetailTypes";
 
 
 async function fetchHeroes() {
@@ -18,6 +19,11 @@ async function fetchHero(id : string) : Promise<HeroDetail> {
 async function fetchArtifacts() {
     const { data } = await axios.get<Artifact[]>("https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/artifacts.json")
     return Object.values(data)
+}
+
+async function fetchArtifact(id : string) : Promise<ArtifactDetail> {
+  const { data } = await axios.get<ArtifactDetailFetch>(`https://api.epicsevendb.com/artifact/${id}`)
+  return data.results[0]
 }
 
 export function useFetchHeroes() {
@@ -67,6 +73,25 @@ export function useFetchArtifacts() {
           role: ROLESART[artifact.role as keyof RoleArtTypes],
         }
       })
+    }
+  });
+}
+
+export function useFetchArtifact(_id:string) {
+  return useQuery({
+    queryKey: ["artifacts", _id], 
+    queryFn: () => fetchArtifact(_id),
+    enabled: _id !== "",
+    staleTime: Infinity,
+    retry: false,
+    retryDelay: 3000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    select: artifact => {
+      return {
+        ...artifact,
+        role: ROLESART[artifact.role as keyof RoleArtTypes],
+      }
     }
   });
 }

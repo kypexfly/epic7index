@@ -31,7 +31,7 @@ const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
   return (
     <div
       className={artifactClassName}
-      onClick={() => handleSelectedId(artifact.id)}
+      onClick={() => handleSelectedId(artifact._id)}
     >
       <div className="relative">
         <div
@@ -42,12 +42,11 @@ const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
         ></div>
         <LazyLoadImage
           effect="opacity"
-          width={96}
-          height={96}
+          width={84}
+          height={84}
           src={`https://res.cloudinary.com/ceciliabot/image/upload/epic-seven/item_arti/icon_${artifact.id}.png`}
         />
       </div>
-      <small>{artifact.name}</small>
     </div>
   );
 };

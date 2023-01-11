@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ArrowsMaximize, ChevronLeft } from "tabler-icons-react";
-import FilterMenu from "../components/FilterMenu";
+import { ChevronLeft } from "tabler-icons-react";
+import HeroFilterMenu from "../components/HeroFilterMenu";
 import HeroDetail from "../components/HeroDetail";
 import HeroesList from "../components/HeroesList";
 import SearchBar from "../components/SearchBar";
 import { useAppStore } from "../store/useStore";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export interface FilterState {
   attributes: Set<string>;
@@ -37,11 +37,11 @@ const HeroesPage = () => {
 
   return (
     <>
-      <section className={selectedId ? "overflow-none sp:overflow-y-auto flex-1 p-2 ml-[-100vw] sp:ml-0" : "overflow-y-auto flex-1 p-2"}>
+      <section className={selectedId ? "overflow-none md:overflow-y-auto flex-1 p-2 ml-[-100vw] md:ml-0" : "overflow-y-auto flex-1 p-2"}>
         <div className="max-w-[640px] mx-auto">
           <div className="flex relative">
             <SearchBar setSearch={setSearch} />
-            <FilterMenu
+            <HeroFilterMenu
               filterOptions={filterOptions}
               setFilterOptions={setFilterOptions}
             />
@@ -55,9 +55,10 @@ const HeroesPage = () => {
           <button className="action__button" type="button" onClick={() => setSelectedId("")}>
             <ChevronLeft /> back
           </button>
-          <Link to={`/heroes/${selectedId}`} className="action__button">
+          {/* Open to a new page (specific to the hero) */}
+          {/* <Link to={`/heroes/${selectedId}`} className="action__button">
             <ArrowsMaximize />
-          </Link>
+          </Link> */}
           </div>
           <HeroDetail />
         </div>

@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
-import SearchBar from "../components/SearchBar";
+import { useEffect, useState } from "react";
+import { ChevronLeft } from "tabler-icons-react";
+import HeroFilterMenu from "../components/HeroFilterMenu";
+import ArtifactDetail from "../components/ArtifactDetail";
 import ArtifactsList from "../components/ArtifactsList";
-import FilterMenu from "../components/FilterMenu";
-// import InfoPanel from "../components/InfoPanel";
+import SearchBar from "../components/SearchBar";
 import { useAppStore } from "../store/useStore";
+// import { Link } from 'react-router-dom'
 
 export interface FilterState {
   attributes: Set<string>;
@@ -12,7 +14,7 @@ export interface FilterState {
   rarity: Set<string>;
 }
 
-const ArtifactsPage = () => {
+const HeroesPage = () => {
   const [search, setSearch] = useState("");
   const [filterOptions, setFilterOptions] = useState<FilterState>({
     attributes: new Set(["All"]),
@@ -21,7 +23,13 @@ const ArtifactsPage = () => {
     rarity: new Set(["All"]),
   });
 
-  const setSelectedId = useAppStore((state) => state.setSelectedId);
+  const [selectedId, setSelectedId] = useAppStore((state) => [
+    state.selectedId,
+    state.setSelectedId,
+  ]);
+  const classNameSelected = selectedId
+    ? "hero__section visible mr-[0vw]"
+    : "hero__section invisible mr-[-100vw]";
 
   useEffect(() => {
     return () => setSelectedId("");
@@ -29,16 +37,34 @@ const ArtifactsPage = () => {
 
   return (
     <>
-      <div className="flex relative">
-        <SearchBar setSearch={setSearch} />
-        {/* <FilterMenu
-          filterOptions={filterOptions}
-          setFilterOptions={setFilterOptions}
-        /> */}
-      </div>
-      {/* <ArtifactsList search={search} filterOptions={filterOptions} /> */}
+      <section className={selectedId ? "overflow-none md:overflow-y-auto flex-1 p-2 ml-[-100vw] md:ml-0" : "overflow-y-auto flex-1 p-2"}>
+        <div className="max-w-[640px] mx-auto">
+          <div className="flex relative">
+            <SearchBar setSearch={setSearch} />
+            <HeroFilterMenu
+              filterOptions={filterOptions}
+              setFilterOptions={setFilterOptions}
+            />
+          </div>
+          <ArtifactsList search={search} filterOptions={filterOptions} />
+        </div>
+      </section>
+      <section className={classNameSelected}>
+        <div className="max-w-[640px] mx-auto">
+          <div className="flex justify-between">
+          <button className="action__button" type="button" onClick={() => setSelectedId("")}>
+            <ChevronLeft /> back
+          </button>
+          {/* Open to a new page (specific to the hero) */}
+          {/* <Link to={`/heroes/${selectedId}`} className="action__button">
+            <ArrowsMaximize />
+          </Link> */}
+          </div>
+          <ArtifactDetail />
+        </div>
+      </section>
     </>
   );
 };
 
-export default ArtifactsPage;
+export default HeroesPage;

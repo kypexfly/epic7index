@@ -94,5 +94,5 @@ hr {
 }
 
 .hero__section {
-    @apply overflow-y-auto flex-1 transition-all duration-300 border-l border-transparent sp:border-slate-400 sp:dark:border-slate-700 p-2
+    @apply overflow-y-auto flex-1 border-l border-transparent md:border-slate-400 md:dark:border-slate-700 p-2
 }

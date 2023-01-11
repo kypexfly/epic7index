@@ -32,11 +32,11 @@ const Navbar = () => {
               Heroes
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink className="hover:dark:text-white" to="/artifacts">
               Artifacts
             </NavLink>
-          </li> */}
+          </li>
         </ul>
 
         <button
