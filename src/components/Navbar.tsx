@@ -32,18 +32,18 @@ const Navbar = () => {
               Heroes
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink className="hover:dark:text-white" to="/artifacts">
               Artifacts
             </NavLink>
-          </li>
+          </li> */}
         </ul>
 
         <button
           className="bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-slate-200 rounded-full p-1 w-12 flex justify-center items-center"
           onClick={toggleTheme}
         >
-          {theme === "dark" ? <Moon size={18} /> : <BrightnessUp size={18} />}
+          {theme === "dark" ? <Moon size={22} /> : <BrightnessUp size={22} />}
         </button>
       </div>
     </header>

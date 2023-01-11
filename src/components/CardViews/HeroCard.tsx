@@ -39,12 +39,12 @@ const HeroCard = ({ hero, isSelected }: HeroCardProp) => {
         ></div>
         <LazyLoadImage
           effect="opacity"
-          width={96}
-          height={96}
+          width={84}
+          height={84}
           src={`https://res.cloudinary.com/ceciliabot/image/upload/epic-seven/face/${hero.id}_s.png`}
         />
       </div>
-      <small>{hero.name}</small>
+      {/* <small>{hero.name}</small> */}
     </div>
   );
 };

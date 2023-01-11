@@ -30,7 +30,7 @@ const HeroesList = ({ search, filterOptions }: HeroesListProps) => {
     return <p>No results. Try again, please.</p>;
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2 col-start-1 col-end-4">
+    <div className="grid grid-cols-[repeat(auto-fill,_minmax(85px,_1fr))] auto-rows-auto gap-2 py-2">
       {filteredHeroes?.map((hero) => (
         <HeroCard
           key={hero.id}

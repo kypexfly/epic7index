@@ -1,12 +1,18 @@
 import { useQuery} from "@tanstack/react-query";
 import axios from "axios"
 import {AttributeTypes, RoleTypes, ZodiacTypes, Hero, Artifact, RoleArtTypes} from "./types"
+import { HeroDetailFetch, HeroDetail } from "./herodetailTypes";
 import { ATTRIBUTES, ROLES, ROLESART, ZODIACS } from "../utils/constants";
 
 
 async function fetchHeroes() {
     const { data } = await axios.get<Hero[]>("https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/HeroDatabase.json")
     return Object.values(data)
+}
+
+async function fetchHero(id : string) : Promise<HeroDetail> {
+    const { data } = await axios.get<HeroDetailFetch>(`https://api.epicsevendb.com/hero/${id}`)
+    return data.results[0]
 }
 
 async function fetchArtifacts() {
@@ -26,6 +32,23 @@ export function useFetchHeroes() {
           zodiac: ZODIACS[hero.zodiac as keyof ZodiacTypes],
         }
       })
+    }
+  });
+}
+
+export function useFetchHero(id:string) {
+  return useQuery({
+    queryKey: ["heroes", id], 
+    queryFn: () => fetchHero(id),
+    enabled: id !== "",
+    staleTime: Infinity,
+    select: hero => {
+      return {
+        ...hero,
+        attribute: ATTRIBUTES[hero.attribute as keyof AttributeTypes],
+        role: ROLES[hero.role as keyof RoleTypes],
+        zodiac: ZODIACS[hero.zodiac as keyof ZodiacTypes],
+      }
     }
   });
 }

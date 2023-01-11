@@ -12,13 +12,12 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-[90vh] container mx-auto p-2">
-        <ScrollToTop />
+      <ScrollToTop />
+      <main className="h-[calc(100vh-50px)] flex justify-center overflow-hidden">
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </div>
-      <Footer />
+      </main>
     </>
   );
 };
@@ -27,12 +26,12 @@ const FullLayout = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-[90vh]">
-        <ScrollToTop />
+      <ScrollToTop />
+      <main className="min-h-[90vh]">
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </div>
+      </main>
       <Footer />
     </>
   );

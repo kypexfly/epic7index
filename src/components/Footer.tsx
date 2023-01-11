@@ -21,6 +21,11 @@ const Footer = () => {
               <li>
                 <a href="https://epic7x.com/"><ExternalLink className="inline" size={16}/> Epic7x</a>
               </li>
+              <li>
+                <a href="https://github.com/kypexfly">
+                  <ExternalLink className="inline" size={16}/> Developer
+                </a>
+              </li>
             </ul>
           </section>
           <section>

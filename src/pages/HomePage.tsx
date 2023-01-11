@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const HomePage = () => {
   return (
-    <div className=" bg-blue-200 dark:bg-slate-900/75 bg-cover bg-no-repeat bg-[75%]" style={{
+    <div className=" bg-slate-300 dark:bg-slate-900/75 bg-cover bg-no-repeat bg-[75%]" style={{
       backgroundImage: "url(/assets/upper-gradient.svg)"
     }}>
       <div className="flex flex-col justify-center items-center container mx-auto min-h-[95vh]">
