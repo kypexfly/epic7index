@@ -5,6 +5,7 @@ import HeroDetail from "../components/HeroDetail";
 import HeroesList from "../components/HeroesList";
 import SearchBar from "../components/SearchBar";
 import { useAppStore } from "../store/useStore";
+import { Link } from 'react-router-dom'
 
 export interface FilterState {
   attributes: Set<string>;
@@ -27,8 +28,8 @@ const HeroesPage = () => {
     state.setSelectedId,
   ]);
   const classNameSelected = selectedId
-    ? "overflow-y-auto flex-1 transition-all duration-300 border-l border-slate-400 dark:border-slate-700 p-2 visible mr-[0vw]"
-    : "overflow-y-auto flex-1 transition-all duration-300 border-l border-slate-400 dark:border-slate-700 p-2 invisible mr-[-100vw]";
+    ? "hero__section visible mr-[0vw]"
+    : "hero__section invisible mr-[-100vw]";
 
   useEffect(() => {
     return () => setSelectedId("");
@@ -36,7 +37,7 @@ const HeroesPage = () => {
 
   return (
     <>
-      <section className="overflow-y-auto flex-1 p-2">
+      <section className={selectedId ? "overflow-none sp:overflow-y-auto flex-1 p-2 ml-[-100vw] sp:ml-0" : "overflow-y-auto flex-1 p-2"}>
         <div className="max-w-[640px] mx-auto">
           <div className="flex relative">
             <SearchBar setSearch={setSearch} />
@@ -54,9 +55,9 @@ const HeroesPage = () => {
           <button className="action__button" type="button" onClick={() => setSelectedId("")}>
             <ChevronLeft /> back
           </button>
-          <button className="action__button" type="button">
+          <Link to={`/heroes/${selectedId}`} className="action__button">
             <ArrowsMaximize />
-          </button>
+          </Link>
           </div>
           <HeroDetail />
         </div>

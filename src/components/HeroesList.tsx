@@ -35,7 +35,7 @@ const HeroesList = ({ search, filterOptions }: HeroesListProps) => {
         <HeroCard
           key={hero.id}
           hero={hero}
-          isSelected={hero.id === selectedId}
+          isSelected={hero._id === selectedId}
         />
       ))}
     </div>

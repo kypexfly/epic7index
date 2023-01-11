@@ -2,31 +2,22 @@ import { RotatingLines } from "react-loader-spinner";
 import { useFetchHero } from "../hooks/useFetch";
 import { useAppStore } from "../store/useStore";
 import skillDescription from "../utils/skillDescription";
+import { useParams } from 'react-router-dom'
 
 const HeroDetail = () => {
-  const selectedId = useAppStore((state) => state.selectedId);
+  const selectedId = useAppStore((state) => state.selectedId) || useParams()?.id;
 
   const { data: hero, isLoading, isError } = useFetchHero(selectedId);
-  console.log(hero)
+  // console.log(hero)
 
   if (isError)
     return (
       <p>
-        Error: Hero not found. Try on <a href="epic7x.com/">Epic7x!</a>
+        Error: Hero not found. Try on <a className="underline" href="epic7x.com/">Epic7x!</a>
       </p>
     );
   if (isLoading)
-    return (
-      <div className="flex h-40 justify-center">
-        <RotatingLines
-          strokeColor="#2563eb"
-          strokeWidth="5"
-          animationDuration="0.75"
-          width="32"
-          visible={true}
-        />
-      </div>
-    );
+    return <></>;
 
   return (
     <>
@@ -109,7 +100,7 @@ const HeroDetail = () => {
         ))}
       </div>
 
-      {/* <hr />
+      <hr />
 
       <h2 className="text-m uppercase font-bold">Specialty Skill</h2>
       <div className="flex gap-5 w-full py-4 items-center">
@@ -125,7 +116,7 @@ const HeroDetail = () => {
                   { hero.specialty.effect_value * 100 }%
               </span>}
           </div>
-      </div> */}
+      </div>
 
     </>
   );

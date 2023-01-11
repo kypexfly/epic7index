@@ -36,12 +36,16 @@ export function useFetchHeroes() {
   });
 }
 
-export function useFetchHero(id:string) {
+export function useFetchHero(_id:string) {
   return useQuery({
-    queryKey: ["heroes", id], 
-    queryFn: () => fetchHero(id),
-    enabled: id !== "",
+    queryKey: ["heroes", _id], 
+    queryFn: () => fetchHero(_id),
+    enabled: _id !== "",
     staleTime: Infinity,
+    retry: 1,
+    retryDelay: 3000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
     select: hero => {
       return {
         ...hero,

@@ -92,3 +92,7 @@ hr {
 .badge-gray {
     @apply inline-block align-middle bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-gray-300
 }
+
+.hero__section {
+    @apply overflow-y-auto flex-1 transition-all duration-300 border-l border-transparent sp:border-slate-400 sp:dark:border-slate-700 p-2
+}

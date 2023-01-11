@@ -7,7 +7,7 @@ type ThemeState = {
 }
 
 type AppState = {
-  selectedId: string;
+  selectedId: any;
   setSelectedId: (id:string) => void
 
 }

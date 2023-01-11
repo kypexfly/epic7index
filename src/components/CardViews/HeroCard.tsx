@@ -14,12 +14,12 @@ const HeroCard = ({ hero, isSelected }: HeroCardProp) => {
   if (isSelected) {
     heroClassName += " active";
   }
-  const handleSelectedId = (id: string) => {
+  const handleSelectedId = (_id: string) => {
     if (isSelected) {
       setSelectedId("");
       return;
     }
-    setSelectedId(id);
+    setSelectedId(_id);
   };
 
   const src = {
@@ -29,7 +29,7 @@ const HeroCard = ({ hero, isSelected }: HeroCardProp) => {
   };
 
   return (
-    <div className={heroClassName} onClick={() => handleSelectedId(hero.id)}>
+    <div className={heroClassName} onClick={() => handleSelectedId(hero._id)}>
       <div className="relative">
         <div
           className="overlay_icons_hero"
