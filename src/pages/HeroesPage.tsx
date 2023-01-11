@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft } from "tabler-icons-react";
+import { ChevronLeft, ArrowsDiagonal2 } from "tabler-icons-react";
 import HeroFilterMenu from "../components/HeroFilterMenu";
 import HeroDetail from "../components/HeroDetail";
 import HeroesList from "../components/HeroesList";
 import SearchBar from "../components/SearchBar";
 import { useAppStore } from "../store/useStore";
-// import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export interface FilterState {
   attributes: Set<string>;
@@ -56,9 +56,9 @@ const HeroesPage = () => {
             <ChevronLeft /> back
           </button>
           {/* Open to a new page (specific to the hero) */}
-          {/* <Link to={`/heroes/${selectedId}`} className="action__button">
-            <ArrowsMaximize />
-          </Link> */}
+          <Link to={`/heroes/${selectedId}`} className="action__button !rounded-full">
+            <ArrowsDiagonal2 className="inline" />
+          </Link>
           </div>
           <HeroDetail />
         </div>

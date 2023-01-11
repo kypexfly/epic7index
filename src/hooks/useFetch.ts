@@ -4,7 +4,7 @@ import {AttributeTypes, RoleTypes, ZodiacTypes, Hero, Artifact, RoleArtTypes} fr
 import { HeroDetailFetch, HeroDetail } from "./herodetailTypes";
 import { ATTRIBUTES, ROLES, ROLESART, ZODIACS } from "../utils/constants";
 import { ArtifactDetail, ArtifactDetailFetch } from "./artifactdetailTypes";
-
+import { ArticleList, NewsFetch } from "./newsTypes";
 
 async function fetchHeroes() {
     const { data } = await axios.get<Hero[]>("https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/HeroDatabase.json")
@@ -24,6 +24,27 @@ async function fetchArtifacts() {
 async function fetchArtifact(id : string) : Promise<ArtifactDetail> {
   const { data } = await axios.get<ArtifactDetailFetch>(`https://api.epicsevendb.com/artifact/${id}`)
   return data.results[0]
+}
+
+async function fetchNews() : Promise<ArticleList[]> {
+  const { data } = await axios.post<NewsFetch>('https://api.onstove.com/cafe/v1/ArticleList', {
+      cafe_key: "epicseven",
+      channel_key: "global",
+      board_key: "e7en001",
+      page: 1,
+      size: 10,
+      direction: "latest",
+      list_type: 2,
+      notice_type: "Y",
+      include_notice: "Y",
+    })
+  return data.context.article_list
+}
+
+export function useFetchNews() {
+  return useQuery(["news"], fetchNews, {
+    staleTime: Infinity
+  });
 }
 
 export function useFetchHeroes() {
@@ -48,7 +69,7 @@ export function useFetchHero(_id:string) {
     queryFn: () => fetchHero(_id),
     enabled: _id !== "",
     staleTime: Infinity,
-    retry: 1,
+    retry: false,
     retryDelay: 3000,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
@@ -56,7 +77,7 @@ export function useFetchHero(_id:string) {
       return {
         ...hero,
         attribute: ATTRIBUTES[hero.attribute as keyof AttributeTypes],
-        role: ROLES[hero.role as keyof RoleTypes],
+        role: ROLESART[hero.role as keyof RoleArtTypes],
         zodiac: ZODIACS[hero.zodiac as keyof ZodiacTypes],
       }
     }

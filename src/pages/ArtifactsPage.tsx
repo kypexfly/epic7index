@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft } from "tabler-icons-react";
-import HeroFilterMenu from "../components/HeroFilterMenu";
+import { ChevronLeft, ArrowsDiagonal2 } from "tabler-icons-react";
+import ArtifactFilterMenu from "../components/ArtifactFilterMenu";
 import ArtifactDetail from "../components/ArtifactDetail";
 import ArtifactsList from "../components/ArtifactsList";
 import SearchBar from "../components/SearchBar";
 import { useAppStore } from "../store/useStore";
+import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom'
 
 export interface FilterState {
@@ -41,7 +42,7 @@ const HeroesPage = () => {
         <div className="max-w-[640px] mx-auto">
           <div className="flex relative">
             <SearchBar setSearch={setSearch} />
-            <HeroFilterMenu
+            <ArtifactFilterMenu
               filterOptions={filterOptions}
               setFilterOptions={setFilterOptions}
             />
@@ -55,10 +56,10 @@ const HeroesPage = () => {
           <button className="action__button" type="button" onClick={() => setSelectedId("")}>
             <ChevronLeft /> back
           </button>
-          {/* Open to a new page (specific to the hero) */}
-          {/* <Link to={`/heroes/${selectedId}`} className="action__button">
-            <ArrowsMaximize />
-          </Link> */}
+          {/* Open to a new page (specific to the artifact) */}
+          <Link to={`/artifacts/${selectedId}`} className="action__button !rounded-full">
+            <ArrowsDiagonal2 className="inline" />
+          </Link>
           </div>
           <ArtifactDetail />
         </div>

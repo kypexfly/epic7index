@@ -53,14 +53,14 @@ hr {
 } */
 
 .filter_menu {
-    @apply grid row-auto absolute bg-gray-200/75 dark:bg-gray-700/75 z-10 right-0 top-12 gap-1 p-1 rounded-md backdrop-blur shadow-md overflow-x-auto w-full max-w-[700px];
+    @apply grid row-auto absolute bg-gray-200/75 dark:bg-gray-700/75 z-10 right-0 top-12 gap-2 p-2 rounded-md backdrop-blur shadow-md overflow-x-auto w-full max-w-[700px];
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
   
 .filter_menu ul {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column; */
     height: 180px;
 }
 
@@ -95,4 +95,8 @@ hr {
 
 .hero__section {
     @apply overflow-y-auto flex-1 border-l border-transparent md:border-slate-400 md:dark:border-slate-700 p-2
+}
+
+.news__card {
+    @apply flex flex-col items-center bg-slate-200 border rounded-lg shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600
 }

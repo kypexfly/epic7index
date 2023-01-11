@@ -20,8 +20,7 @@ const ArtifactsList = ({ search, filterOptions }: ArtifactsListProps) => {
   const filteredArtifacts = artifacts?.filter(
     (artifact) =>
       artifact.name.toLowerCase().includes(debouncedSearch.toLowerCase()) &&
-    //   checkFilterValues(artifact.role, [...filterOptions["roles"]])
-    //   checkFilterValues(artifact.zodiac, [...filterOptions["zodiacs"]]) &&
+      checkFilterValues(artifact.role || "", [...filterOptions["roles"]]) &&
       checkFilterValues(artifact.rarity.toString(), [...filterOptions["rarity"]])
   );
 
@@ -29,9 +28,8 @@ const ArtifactsList = ({ search, filterOptions }: ArtifactsListProps) => {
     return <p>No results. Try again, please.</p>;
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2 col-start-1 col-end-4">
+    <div className="grid grid-cols-[repeat(auto-fill,_minmax(85px,_1fr))] auto-rows-[minmax(100px,_2fr)] gap-1 py-2 col-start-1 col-end-4">
       {filteredArtifacts?.map((artifact) => (
-        // <span>{artifact.name}</span>
         <ArtifactCard
           key={artifact.id}
           artifact={artifact}

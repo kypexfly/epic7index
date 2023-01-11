@@ -28,6 +28,11 @@ const Navbar = () => {
 
         <ul className="flex items-center gap-3">
           <li>
+            <NavLink className="hover:dark:text-white" to="/news">
+              News
+            </NavLink>
+          </li>
+          <li>
             <NavLink className="hover:dark:text-white" to="/heroes">
               Heroes
             </NavLink>

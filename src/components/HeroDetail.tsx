@@ -1,32 +1,25 @@
-import { RotatingLines } from "react-loader-spinner";
+import Loader2 from "../components/Loader2";
 import { useFetchHero } from "../hooks/useFetch";
 import { useAppStore } from "../store/useStore";
 import skillDescription from "../utils/skillDescription";
 
-const HeroDetail = () => {
-  const selectedId = useAppStore((state) => state.selectedId);
+
+const HeroDetail = ({id = ""}) => {
+  const selectedId = useAppStore((state) => state.selectedId) || id;
 
   const { data: hero, isLoading, isError } = useFetchHero(selectedId);
   // console.log(hero)
 
   if (isError)
     return (
-      <p>
-        Error: Hero not found. Try on <a className="underline" href="epic7x.com/">Epic7x!</a>
-      </p>
+      <div className="bg-red-100 text-red-800 mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
+        <p><strong>ERROR!</strong> Hero not found. Try it on <a className="underline" href="https://epic7x.com/">Epic7x!</a></p>
+      </div>
     );
 
   if (isLoading)
   return (
-    <div className="flex h-40 justify-center">
-      <RotatingLines
-        strokeColor="#2563eb"
-        strokeWidth="5"
-        animationDuration="0.75"
-        width="32"
-        visible={true}
-      />
-    </div>
+    <Loader2/>
   );
 
   return (
@@ -44,7 +37,7 @@ const HeroDetail = () => {
       </header>
 
       {/* Hero properties */}
-      <div className="flex flex-wrap gap-5 mt-3 mb-5 justify-evenly items-center">
+      <div className="flex flex-wrap gap-5 mt-3 mb-5 justify-evenly items-center max-w-[640px]">
         <span>
           <img
             src={`/assets/attributes/${hero.attribute}.png`}

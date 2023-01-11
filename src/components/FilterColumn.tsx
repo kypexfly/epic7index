@@ -1,11 +1,11 @@
-import { AttributeTypes, RoleTypes, ZodiacTypes } from "../hooks/types";
+import { AttributeTypes, RoleTypes, ZodiacTypes, RoleArtTypes } from "../hooks/types";
 import { FilterState } from "../pages/HeroesPage";
 
 interface FilterColumnState {
   filterOptions: FilterState;
   handleSetFilter: (category: string, filter: string) => void;
   filter: string;
-  category: AttributeTypes | RoleTypes | ZodiacTypes | Number[];
+  category: AttributeTypes | RoleTypes | RoleArtTypes | ZodiacTypes | Number[];
 }
 
 export default function FilterColumn({

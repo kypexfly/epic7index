@@ -15,7 +15,7 @@ export interface Artifact {
   identifier: string;
   name: string;
   rarity: number;
-  role: string | undefined;
+  role: string;
   gacha: boolean;
 }
 
@@ -44,8 +44,8 @@ export interface ZodiacTypes {
   }
 
   export interface RoleArtTypes extends RoleTypes {
-    ""?: string;
-    undefined?: string;
+    "": string;
+    undefined: string;
   }
   
   export interface AttributeTypes {
