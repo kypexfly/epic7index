@@ -14,7 +14,7 @@ const NewsPage = () => {
         grid 
         md:grid-cols-[repeat(auto-fit,minmax(450px,1fr))] 
         grid-cols-[repeat(auto-fit,1fr)]
-        auto-rows-min
+        auto-rows-fr
         gap-5">
 
         {news?.map((news) => (
