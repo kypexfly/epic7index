@@ -18,13 +18,13 @@ const NewsCard = ({ news }: { news: ArticleList }) => {
       {preview_url && (
         <img
           src={preview_url}
-          className="w-full h-48 md:h-auto md:w-48 object-cover object-center lg:rounded-tl-lg lg:rounded-bl-lg rounded-tl-lg rounded-tr-lg"
+          className="w-full h-48 md:h-auto md:w-48 object-cover object-center md:rounded-bl-lg md:rounded-tr-none rounded-tl-lg rounded-tr-lg"
           alt=""
         />
       )}
       <div className="flex flex-col p-4 leading-normal">
         <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-        <ExternalLink className="inline-block" /> {truncate(title, 60)}
+        <ExternalLink className="inline-block text-blue-500" /> {truncate(title, 60)}
         </h5>
         <p className="mb-3 text-gray-700 dark:text-gray-400">
           {truncate(formatContet(content), 130)}
