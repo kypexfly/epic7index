@@ -98,5 +98,5 @@ hr {
 }
 
 .news__card {
-    @apply flex flex-col items-center bg-slate-200 border rounded-lg shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600
+    @apply flex flex-col bg-slate-200 border rounded-lg shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600
 }

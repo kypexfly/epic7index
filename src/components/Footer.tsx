@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-slate-200 dark:bg-slate-900">
       <div className="container mx-auto pt-10 pb-5">
-        <div className="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-6 px-2">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 px-2">
           <section>
             <h2 className="text-xl text-gray-700 dark:text-gray-400">Links</h2>
             <ul className="text-gray-500">
