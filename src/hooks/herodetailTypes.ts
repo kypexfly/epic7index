@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Stats {
     bra: number;
     int: number;
@@ -5,15 +6,15 @@ export interface Stats {
     des: number;
 }
 
-export interface Upgrade {
-}
+// export interface Upgrade {
+// }
 
 export interface Relation {
     id: string;
     slot: number;
     description: string;
     relation: string;
-    upgrade: Upgrade;
+    upgrade: object; // Upgrade
     relation_id: string;
 }
 
@@ -80,27 +81,27 @@ export interface Specialty {
 
 export interface Values {
     Criticism: number;
-    "Reality Check": number;
-    "Heroic Tale": number;
-    "Comforting Cheer": number;
-    "Cute Cheer": number;
-    "Heroic Cheer": number;
-    "Sad Memory": number;
-    "Joyful Memory": number;
-    "Happy Memories": number;
-    "Unique Comment": number;
-    "Self-Indulgent": number;
+    'Reality Check': number;
+    'Heroic Tale': number;
+    'Comforting Cheer': number;
+    'Cute Cheer': number;
+    'Heroic Cheer': number;
+    'Sad Memory': number;
+    'Joyful Memory': number;
+    'Happy Memories': number;
+    'Unique Comment': number;
+    'Self-Indulgent': number;
     Occult: number;
     Myth: number;
-    "Bizarre Story": number;
-    "Food Story": number;
-    "Horror Story": number;
+    'Bizarre Story': number;
+    'Food Story': number;
+    'Horror Story': number;
     Gossip: number;
     Dream: number;
     Advice: number;
     Complain: number;
     Belief: number;
-    "Interesting Story": number;
+    'Interesting Story': number;
 }
 
 export interface Camping {
@@ -219,8 +220,8 @@ export interface Skill {
     soul_att_rate?: number;
 }
 
-export interface SpecialtyChange {
-}
+// export interface SpecialtyChange {
+// }
 
 export interface Assets5 {
     icon: string;
@@ -336,7 +337,7 @@ export interface HeroDetail {
     camping: Camping;
     zodiac_tree: ZodiacTree[];
     skills: Skill[];
-    specialty_change: SpecialtyChange;
+    specialty_change: object; // SpecialtyChange
     assets: Assets5;
     buffs: Buff[];
     debuffs: Debuff[];

@@ -2,14 +2,13 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type ThemeState = {
-  theme: "dark" | "light",
+  theme: 'dark' | 'light',
   toggleTheme: () => void
 }
 
 type AppState = {
   selectedId: string;
   setSelectedId: (id:string) => void
-
 }
 
 export const useThemeStore = create(
@@ -19,11 +18,11 @@ export const useThemeStore = create(
       theme: state.theme === 'dark' ? 'light' : 'dark'
     }))
   }), {
-    name: "theme"
+    name: 'theme'
   })
 )
 
 export const useAppStore = create<AppState>((set) => ({
-  selectedId: "",
+  selectedId: '',
   setSelectedId: (id) => set({selectedId: id })
 }))

@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import HeroDetail from "../components/HeroDetail";
+import { useParams } from 'react-router-dom';
+import HeroDetail from '../components/HeroDetail';
 const HeroPage = () => {
   const { id } = useParams()
   return (

@@ -44,7 +44,7 @@ export interface ZodiacTypes {
   }
 
   export interface RoleArtTypes extends RoleTypes {
-    "": string;
+    '': string;
     undefined: string;
   }
   

@@ -1,5 +1,5 @@
-import NewsCard from "../components/CardViews/NewsCard";
-import { useFetchNews } from "../hooks/useFetch";
+import NewsCard from '../components/CardViews/NewsCard';
+import { useFetchNews } from '../hooks/useFetch';
 
 const NewsPage = () => {
   const { data: news } = useFetchNews();

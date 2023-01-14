@@ -1,13 +1,14 @@
-import { useQuery} from "@tanstack/react-query";
-import axios from "axios"
-import {AttributeTypes, RoleTypes, ZodiacTypes, Hero, Artifact, RoleArtTypes} from "./types"
-import { HeroDetailFetch, HeroDetail } from "./herodetailTypes";
-import { ATTRIBUTES, ROLES, ROLESART, ZODIACS } from "../utils/constants";
-import { ArtifactDetail, ArtifactDetailFetch } from "./artifactdetailTypes";
-import { ArticleList, NewsFetch } from "./newsTypes";
+/* eslint-disable camelcase */
+import { useQuery} from '@tanstack/react-query';
+import axios from 'axios'
+import {AttributeTypes, RoleTypes, ZodiacTypes, Hero, Artifact, RoleArtTypes} from './types'
+import { HeroDetailFetch, HeroDetail } from './herodetailTypes';
+import { ATTRIBUTES, ROLES, ROLESART, ZODIACS } from '../utils/constants';
+import { ArtifactDetail, ArtifactDetailFetch } from './artifactdetailTypes';
+import { ArticleList, NewsFetch } from './newsTypes';
 
 async function fetchHeroes() {
-    const { data } = await axios.get<Hero[]>("https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/HeroDatabase.json")
+    const { data } = await axios.get<Hero[]>('https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/HeroDatabase.json')
     return Object.values(data)
 }
 
@@ -17,7 +18,7 @@ async function fetchHero(id : string) : Promise<HeroDetail> {
 }
 
 async function fetchArtifacts() {
-    const { data } = await axios.get<Artifact[]>("https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/artifacts.json")
+    const { data } = await axios.get<Artifact[]>('https://raw.githubusercontent.com/CeciliaBot/CeciliaBot.github.io/master/data/artifacts.json')
     return Object.values(data)
 }
 
@@ -28,27 +29,27 @@ async function fetchArtifact(id : string) : Promise<ArtifactDetail> {
 
 async function fetchNews() : Promise<ArticleList[]> {
   const { data } = await axios.post<NewsFetch>('https://api.onstove.com/cafe/v1/ArticleList', {
-      cafe_key: "epicseven",
-      channel_key: "global",
-      board_key: "e7en001",
+      cafe_key: 'epicseven',
+      channel_key: 'global',
+      board_key: 'e7en001',
       page: 3,
       size: 1,
-      direction: "latest",
+      direction: 'latest',
       list_type: 2,
-      notice_type: "Y",
-      include_notice: "Y",
+      notice_type: 'Y',
+      include_notice: 'Y',
     })
   return data.context.article_list
 }
 
 export function useFetchNews() {
-  return useQuery(["news"], fetchNews, {
+  return useQuery(['news'], fetchNews, {
     staleTime: Infinity
   });
 }
 
 export function useFetchHeroes() {
-  return useQuery(["heroes"], fetchHeroes, {
+  return useQuery(['heroes'], fetchHeroes, {
     staleTime: Infinity,
     select: data => {
       return data.map(hero => {
@@ -65,9 +66,9 @@ export function useFetchHeroes() {
 
 export function useFetchHero(_id:string) {
   return useQuery({
-    queryKey: ["heroes", _id], 
+    queryKey: ['heroes', _id], 
     queryFn: () => fetchHero(_id),
-    enabled: _id !== "",
+    enabled: _id !== '',
     staleTime: Infinity,
     retry: false,
     retryDelay: 3000,
@@ -85,7 +86,7 @@ export function useFetchHero(_id:string) {
 }
 
 export function useFetchArtifacts() {
-  return useQuery(["artifacts"], fetchArtifacts, {
+  return useQuery(['artifacts'], fetchArtifacts, {
     staleTime: Infinity,
     select: data => {
       return data.map(artifact => {
@@ -100,9 +101,9 @@ export function useFetchArtifacts() {
 
 export function useFetchArtifact(_id:string) {
   return useQuery({
-    queryKey: ["artifacts", _id], 
+    queryKey: ['artifacts', _id], 
     queryFn: () => fetchArtifact(_id),
-    enabled: _id !== "",
+    enabled: _id !== '',
     staleTime: Infinity,
     retry: false,
     retryDelay: 3000,

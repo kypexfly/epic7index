@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 
 export function useOutsideClick(ref: any, onClickOut: () => void){
     useEffect(() => {
         const onClick = ({target}: any) => !ref.contains(target) && onClickOut?.()
-        document.addEventListener("click", onClick);
-        return () => document.removeEventListener("click", onClick);
+        document.addEventListener('click', onClick);
+        return () => document.removeEventListener('click', onClick);
     }, []);
 }

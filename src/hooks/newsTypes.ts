@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface NewsFetch {
     return_code:    number;
     return_message: string;
@@ -98,9 +99,9 @@ export interface ArticleTagInfo {
 }
 
 export enum ArticleTagInfoChannelTag {
-    Events = "Events",
-    GameMaintenance = "Game_Maintenance",
-    GeneralDiscussion = "General_Discussion",
+    Events = 'Events',
+    GameMaintenance = 'Game_Maintenance',
+    GeneralDiscussion = 'General_Discussion',
 }
 
 export interface CustomTagList {
@@ -111,22 +112,22 @@ export interface CustomTagList {
 }
 
 export enum CustomTagListChannelTag {
-    EpicSeven = "EpicSeven",
+    EpicSeven = 'EpicSeven',
 }
 
 export enum CardType {
-    Card = "CARD",
+    Card = 'CARD',
 }
 
 export enum DeviceType {
-    M01 = "M01",
-    M02 = "M02",
-    P01 = "P01",
+    M01 = 'M01',
+    M02 = 'M02',
+    P01 = 'P01',
 }
 
 export enum Yn {
-    N = "N",
-    Y = "Y",
+    N = 'N',
+    Y = 'Y',
 }
 
 export interface User {
@@ -153,26 +154,26 @@ export interface User {
 }
 
 export enum CpHomeNicknameFlag {
-    P = "P",
+    P = 'P',
 }
 
 export enum GradeName {
-    Official = "Official",
-    골드 = "골드",
-    브론즈 = "브론즈",
-    실버 = "실버",
-    플래티넘 = "플래티넘",
+    Official = 'Official',
+    골드 = '골드',
+    브론즈 = '브론즈',
+    실버 = '실버',
+    플래티넘 = '플래티넘',
 }
 
 export enum LoginProviderCD {
-    Fb = "FB",
-    Gp = "GP",
-    Sm = "SM",
-    So = "SO",
+    Fb = 'FB',
+    Gp = 'GP',
+    Sm = 'SM',
+    So = 'SO',
 }
 
 export enum UserGrade {
-    Normal = "NORMAL",
+    Normal = 'NORMAL',
 }
 
 export interface MediaList {
@@ -185,25 +186,25 @@ export interface MediaList {
 }
 
 export enum MediaType {
-    Image = "IMAGE",
+    Image = 'IMAGE',
 }
 
 export enum RegType {
-    User = "USER",
+    User = 'USER',
 }
 
 export enum ServiceType {
-    Dynocaps = "DYNOCAPS",
+    Dynocaps = 'DYNOCAPS',
 }
 
 export enum Status {
-    Published = "PUBLISHED",
+    Published = 'PUBLISHED',
 }
 
 export enum ViewMode {
-    Editor = "EDITOR",
+    Editor = 'EDITOR',
 }
 
 export enum WriteType {
-    Expert = "EXPERT",
+    Expert = 'EXPERT',
 }
