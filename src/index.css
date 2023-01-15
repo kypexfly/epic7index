@@ -20,7 +20,7 @@ footer a {
 }
 
 body {
-  @apply bg-slate-300 text-slate-700 dark:bg-slate-800 dark:text-slate-200;
+  @apply bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-200;
 }
 
 p {
@@ -110,9 +110,9 @@ hr {
 }
 
 .hero__section {
-  @apply flex-1 overflow-y-auto border-l border-transparent p-2 md:border-slate-400 md:dark:border-slate-800 dark:bg-slate-800;
+  @apply flex-1 overflow-y-auto bg-slate-200 p-2  dark:bg-slate-800 md:border-slate-200;
 }
 
 .news__card {
-  @apply flex flex-col rounded-lg bg-slate-200 transition-colors hover:bg-slate-100 dark:bg-gray-700 dark:hover:bg-gray-700/50 md:flex-row;
+  @apply flex flex-col rounded-lg bg-slate-100 transition-colors hover:bg-white dark:bg-gray-700 dark:hover:bg-gray-700/50 md:flex-row;
 }
