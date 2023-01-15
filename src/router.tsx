@@ -16,7 +16,7 @@ const Layout = () => {
     <>
       <Navbar />
       <ScrollToTop />
-      <main className='flex h-[calc(100vh-50px)] justify-center overflow-hidden'>
+      <main className='flex h-[calc(100vh-56px)] justify-center overflow-hidden dark:bg-slate-900'>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

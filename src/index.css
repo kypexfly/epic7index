@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+footer a {
+  @apply hover:underline dark:text-gray-400 hover:dark:text-gray-300;
+}
 
 body {
   @apply bg-slate-300 text-slate-700 dark:bg-slate-800 dark:text-slate-200;
@@ -81,7 +98,7 @@ hr {
 }
 
 .skill__card {
-  @apply flex w-full cursor-pointer items-center gap-5 rounded-lg border border-gray-200 bg-slate-200 py-4 px-2 dark:border-gray-600 dark:bg-gray-700;
+  @apply flex w-full cursor-pointer items-center gap-5 rounded-lg  bg-slate-200 py-4 px-2  dark:bg-gray-700;
 }
 
 .action__button {
@@ -93,10 +110,9 @@ hr {
 }
 
 .hero__section {
-  @apply flex-1 overflow-y-auto border-l border-transparent p-2 md:border-slate-400 md:dark:border-slate-700;
+  @apply flex-1 overflow-y-auto border-l border-transparent p-2 md:border-slate-400 md:dark:border-slate-800 dark:bg-slate-800;
 }
 
 .news__card {
-  @apply flex flex-col rounded-lg border-2 bg-slate-200 shadow-md hover:border-blue-500 
-    dark:border-gray-600 dark:bg-gray-700 dark:hover:border-blue-500 dark:hover:bg-gray-800 md:flex-row;
+  @apply flex flex-col rounded-lg bg-slate-200 transition-colors hover:bg-slate-100 dark:bg-gray-700 dark:hover:bg-gray-700/50 md:flex-row;
 }

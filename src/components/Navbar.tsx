@@ -14,38 +14,41 @@ const Navbar = () => {
   }, [theme])
 
   return (
-    <header
-      id='navbar'
-      className='sticky top-0 z-20 bg-slate-200/75 backdrop-blur dark:bg-slate-900/75'
-    >
-      <div className='container mx-auto flex justify-between p-2'>
+    <header className='sticky top-0 z-20 bg-slate-200/50 backdrop-blur dark:bg-slate-800/50'>
+      <div className='container mx-auto flex justify-between p-4'>
         <Link className='flex items-center font-bold text-blue-700 dark:text-blue-600' to='/'>
-          E7INDEX <sup className='text-slate-700 dark:text-slate-400'>(BETA)</sup>
+          E7INDEX
         </Link>
 
         <ul className='flex items-center gap-3'>
           <li>
-            <NavLink className='hover:dark:text-white' to='/news'>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-blue-500' : undefined)}
+              to='/news'
+            >
               News
             </NavLink>
           </li>
           <li>
-            <NavLink className='hover:dark:text-white' to='/heroes'>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-blue-500' : undefined)}
+              to='/heroes'
+            >
               Heroes
             </NavLink>
           </li>
           <li>
-            <NavLink className='hover:dark:text-white' to='/artifacts'>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-blue-500' : undefined)}
+              to='/artifacts'
+            >
               Artifacts
             </NavLink>
           </li>
         </ul>
 
-        <button
-          className='flex w-12 items-center justify-center rounded-full bg-blue-700 p-1 text-slate-200 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700'
-          onClick={toggleTheme}
-        >
-          {theme === 'dark' ? <Moon size={22} /> : <BrightnessUp size={22} />}
+        <button className='flex items-center justify-center' onClick={toggleTheme}>
+          {theme === 'dark' ? <Moon size={24} /> : <BrightnessUp size={24} />}
         </button>
       </div>
     </header>

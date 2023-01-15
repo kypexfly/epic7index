@@ -1,4 +1,4 @@
-import { ExternalLink } from 'tabler-icons-react'
+import { ExternalLink, BrandGithub } from 'tabler-icons-react'
 
 interface linkType {
   text: string
@@ -22,10 +22,6 @@ const externalLinks: linkType[] = [
     text: 'Epic7x',
     url: 'https://epic7x.com/',
   },
-  {
-    text: 'Developer',
-    url: 'https://github.com/kypexfly',
-  },
 ]
 
 const resourcesLinks: linkType[] = [
@@ -45,12 +41,12 @@ const resourcesLinks: linkType[] = [
 
 const Footer = () => {
   return (
-    <footer id='footer' className='bg-slate-200 dark:bg-slate-900'>
+    <footer className='bg-slate-200 text-gray-500 dark:bg-slate-800 dark:text-gray-400'>
       <div className='container mx-auto pt-10 pb-5'>
-        <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 px-2'>
-          <section>
-            <h2 className='text-xl text-gray-700 dark:text-gray-400'>Links</h2>
-            <ul className='text-gray-500'>
+        <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 px-2 pt-10'>
+          <div>
+            <h3 className='text-xl font-bold text-gray-700 dark:text-gray-300'>Links</h3>
+            <ul className='my-4'>
               {externalLinks.map((link, index) => (
                 <li key={index}>
                   <a href={link.url}>
@@ -59,10 +55,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </section>
-          <section>
-            <h2 className='text-xl text-gray-700 dark:text-gray-400'>Resources</h2>
-            <ul className='text-gray-500'>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold text-gray-700 dark:text-gray-300'>Resources</h3>
+            <ul className='my-4'>
               {resourcesLinks.map((link, index) => (
                 <li key={index}>
                   <a href={link.url}>
@@ -71,30 +67,36 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </section>
-          <section>
-            <h2 className='text-xl text-gray-700 dark:text-gray-400'>About</h2>
-            <p className='text-justify text-gray-500'>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold text-gray-700 dark:text-gray-300'>About</h3>
+            <p className='text-justify'>
               Epic Seven is a mobile RPG for iOS and Android that features high-quality,
               anime-styled 2D graphics. Gameplay includes a gacha summoning system and turn-based
               combat with a wide array of collectible characters.
             </p>
-          </section>
-          <section>
-            <h2 className='text-xl text-gray-700 dark:text-gray-400'>Contact</h2>
-            <p className='text-justify text-gray-500'>
+          </div>
+          <div>
+            <h3 className='text-xl font-bold text-gray-700 dark:text-gray-300'>Contact</h3>
+            <p className='text-justify'>
               All game content and assets are trademarks and copyrights of SUPERCREATIVE Corp and/or
               Smilegate Megaport.
             </p>
-            <p className='text-justify text-gray-500'>
-              This site is fan made, not affiliated with SUPERCREATIVE Corp and/or Smilegate
-              Megaport.
-            </p>
-          </section>
+          </div>
         </div>
-        <div className='mt-10 flex justify-between px-2'>
-          <span>EPIC7INDEX</span>
-          <span>2023</span>
+        <div className='flex flex-wrap justify-between gap-5 px-2 pt-16 pb-4'>
+          <span>EPIC7INDEX 2023</span>
+          <span>
+            This site is fan made, not affiliated with SUPERCREATIVE Corp and/or Smilegate Megaport
+          </span>
+          <a
+            href='https://github.com/kypexfly'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='flex items-center gap-2'
+          >
+            <BrandGithub /> Kypexfly
+          </a>
         </div>
       </div>
     </footer>
