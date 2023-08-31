@@ -51,9 +51,6 @@ const Navbar = () => {
           {theme === 'dark' ? <Moon size={24} /> : <BrightnessUp size={24} />}
         </button>
       </div>
-      <div className='text-center bg-blue-400/75 dark:bg-blue-600/75 py-1'>
-        EpicSevenDB API is not working anymore, so it is no longer possible to get information on heroes and artifacts. 
-      </div>
     </header>
   )
 }

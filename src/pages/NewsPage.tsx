@@ -27,11 +27,11 @@ const NewsPage = () => {
 
       <div
         className='news__list mt-10
-        grid auto-rows-[minmax(200px,1fr)] grid-cols-[repeat(auto-fit,1fr)] gap-5 md:grid-cols-[repeat(auto-fit,minmax(450px,1fr))]'
+        grid auto-rows-[minmax(200px,auto)] grid-cols-[repeat(auto-fit,1fr)] gap-5 md:grid-cols-[repeat(auto-fit,minmax(450px,1fr))]'
       >
         {!news && <NewsSkeletonCard number={12} />}
         {news?.map((news) => (
-          <NewsCard key={news.card_no} news={news} />
+          <NewsCard key={news.article_id} news={news} />
         ))}
       </div>
     </div>

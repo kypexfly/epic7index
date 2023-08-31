@@ -1,8 +1,8 @@
-import { memo } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/opacity.css";
-import { Artifact } from "../../hooks/types";
-import { useAppStore } from "../../store/useStore";
+import { memo } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { Artifact } from '../../hooks/types';
+import { useAppStore } from '../../store/useStore';
 
 type ArtifactCardProp = {
   artifact: Artifact;
@@ -11,13 +11,13 @@ type ArtifactCardProp = {
 
 const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
   const setSelectedId = useAppStore((state) => state.setSelectedId);
-  let artifactClassName = "hero__card";
+  let artifactClassName = 'hero__card';
   if (isSelected) {
-    artifactClassName += " active";
+    artifactClassName += ' active';
   }
   const handleSelectedId = (id: string) => {
     if (isSelected) {
-      setSelectedId("");
+      setSelectedId('');
       return;
     }
     setSelectedId(id);
@@ -44,7 +44,7 @@ const ArtifactCard = ({ artifact, isSelected }: ArtifactCardProp) => {
           effect="opacity"
           width={84}
           height={84}
-          src={`https://res.cloudinary.com/ceciliabot/image/upload/epic-seven/item_arti/icon_${artifact.id}.png`}
+          src={`https://raw.githubusercontent.com/CeciliaBot/E7Assets-Temp/main/assets/item_arti/icon_${artifact.id}.png`}
         />
       </div>
     </div>
